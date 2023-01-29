@@ -52,9 +52,11 @@ export default async (req, res) => {
     */
     const stars = repoData.starCount;
     const forks = repoData.forkCount;
-    const isBothOver1K = stars > 1000 && forks > 1000;
-    const isBothUnder1 = stars < 1 && forks < 1;
-    if (!cache_seconds && (isBothOver1K || isBothUnder1)) {
+    const issues = repoData.issuesCount;
+    const pullRequests = repoData.pullRequestsCount;
+    const isAllOver1K = stars > 1000 && forks > 1000 && issues > 1000 && pullRequests > 1000;
+    const isAllUnder1 = stars < 1 && forks < 1 && issues < 1 && pullRequests < 1;
+    if (!cache_seconds && (isAllOver1K || isAllUnder1)) {
       cacheSeconds = CONSTANTS.FOUR_HOURS;
     }
 
