@@ -96,6 +96,8 @@ const renderRepoCard = (repo, options = {}) => {
     isTemplate,
     starCount,
     forkCount,
+    issuesCount,
+    pullRequestsCount,
   } = repo;
   const {
     hide_border = false,
@@ -146,15 +148,21 @@ const renderRepoCard = (repo, options = {}) => {
 
   const totalStars = kFormatter(starCount);
   const totalForks = kFormatter(forkCount);
+  const totalIssues = kFormatter(issuesCount);
+  const totalPullRequests = kFormatter(pullRequestsCount);
   const svgStars = iconWithLabel(icons.star, totalStars, "stargazers");
   const svgForks = iconWithLabel(icons.fork, totalForks, "forkcount");
+  const svgIssues = iconWithLabel(icons.issues, totalIssues, "issuescount");
+  const svgPUllRequests = iconWithLabel(icons.prs, totalPullRequests, "pullrequestscount");
 
-  const starAndForkCount = flexLayout({
-    items: [svgLanguage, svgStars, svgForks],
+  const counters = flexLayout({
+    items: [svgLanguage, svgStars, svgForks, svgIssues, svgPUllRequests],
     sizes: [
       measureText(langName, 12),
       ICON_SIZE + measureText(`${totalStars}`, 12),
       ICON_SIZE + measureText(`${totalForks}`, 12),
+      ICON_SIZE + measureText(`${totalIssues}`, 12),
+      ICON_SIZE + measureText(`${totalPullRequests}`, 12),
     ],
     gap: 25,
   }).join("");
@@ -195,7 +203,7 @@ const renderRepoCard = (repo, options = {}) => {
     </text>
 
     <g transform="translate(30, ${height - 75})">
-      ${starAndForkCount}
+      ${counters}
     </g>
   `);
 };
