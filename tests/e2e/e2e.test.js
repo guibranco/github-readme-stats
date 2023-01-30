@@ -78,6 +78,12 @@ const REPOSITORY_DATA = {
   },
   forkCount: 0,
   starCount: 1,
+  openIssues: {
+    totalCount: 45,
+  },
+  openPullRequests: {
+    totalCount: 10,
+  },
 };
 
 const CACHE_BURST_STRING = `v=${new Date().getTime()}`;
