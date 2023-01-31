@@ -17,6 +17,8 @@ const data_repo = {
     },
     starCount: 38000,
     forkCount: 100,
+    issuesCount: 45,
+    pullRequestsCount: 10,
   },
 };
 
@@ -33,6 +35,10 @@ describe("Test renderRepoCard", () => {
     );
     expect(queryByTestId(document.body, "stargazers")).toHaveTextContent("38k");
     expect(queryByTestId(document.body, "forkcount")).toHaveTextContent("100");
+    expect(queryByTestId(document.body, "issuescount")).toHaveTextContent("45");
+    expect(queryByTestId(document.body, "pullrequestscount")).toHaveTextContent(
+      "10",
+    );
     expect(queryByTestId(document.body, "lang-name")).toHaveTextContent(
       "TypeScript",
     );
