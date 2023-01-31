@@ -13,6 +13,8 @@ export type RepositoryData = {
   };
   forkCount: number;
   starCount: number;
+  issuesCount: number;
+  pullRequestsCount: number;
 };
 
 export type StatsData = {
