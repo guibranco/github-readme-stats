@@ -294,6 +294,10 @@ You can provide multiple comma-separated values in the bg_color option to render
 #### Repo Card Exclusive Options
 
 -   `show_owner` - Show the repo's owner name _(boolean)_. Default: `false`.
+-   `show_stars` - Show the repo's stars count _(boolean)_. Default: `true`.
+-   `show_forks` - Show the repo's forks count _(boolean)_. Default: `true`.
+-   `show_issues` - Show the repo's issues count _(boolean)_. Default: `false`.
+-   `show_pull_requests` - Show the repo's pull requests count _(boolean)_. Default: `false`.
 
 #### Language Card Exclusive Options
 
