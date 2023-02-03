@@ -110,6 +110,10 @@ const renderRepoCard = (repo, options = {}) => {
     border_radius,
     border_color,
     locale,
+    show_stars = true,
+    show_forks = true,
+    show_issues = false,
+    show_pull_requests = false,
   } = options;
 
   const lineHeight = 10;
@@ -150,19 +154,32 @@ const renderRepoCard = (repo, options = {}) => {
   const totalForks = kFormatter(forkCount);
   const totalIssues = kFormatter(issuesCount);
   const totalPullRequests = kFormatter(pullRequestsCount);
+
   const svgStars = iconWithLabel(icons.star, totalStars, "stargazers");
   const svgForks = iconWithLabel(icons.fork, totalForks, "forkcount");
   const svgIssues = iconWithLabel(icons.issues, totalIssues, "issuescount");
-  const svgPUllRequests = iconWithLabel(icons.prs, totalPullRequests, "pullrequestscount");
+  const svgPullRequests = iconWithLabel(
+    icons.prs,
+    totalPullRequests,
+    "pullrequestscount",
+  );
 
   const counters = flexLayout({
-    items: [svgLanguage, svgStars, svgForks, svgIssues, svgPUllRequests],
+    items: [
+      svgLanguage,
+      ...(show_stars ? [svgStars] : []),
+      ...(show_forks ? [svgForks] : []),
+      ...(show_issues ? [svgIssues] : []),
+      ...(show_pull_requests ? [svgPullRequests] : []),
+    ],
     sizes: [
       measureText(langName, 12),
-      ICON_SIZE + measureText(`${totalStars}`, 12),
-      ICON_SIZE + measureText(`${totalForks}`, 12),
-      ICON_SIZE + measureText(`${totalIssues}`, 12),
-      ICON_SIZE + measureText(`${totalPullRequests}`, 12),
+      ...(show_stars ? [ICON_SIZE + measureText(`${totalStars}`, 12)] : []),
+      ...(show_forks ? [ICON_SIZE + measureText(`${totalForks}`, 12)] : []),
+      ...(show_issues ? [ICON_SIZE + measureText(`${totalIssues}`, 12)] : []),
+      ...(show_pull_requests
+        ? [ICON_SIZE + measureText(`${totalPullRequests}`, 12)]
+        : []),
     ],
     gap: 25,
   }).join("");

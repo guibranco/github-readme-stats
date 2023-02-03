@@ -17,7 +17,7 @@ const data_repo = {
     },
     starCount: 38000,
     forkCount: 100,
-    issuesCount: 45,
+    issuesCount: 4500,
     pullRequestsCount: 10,
   },
 };
@@ -35,10 +35,6 @@ describe("Test renderRepoCard", () => {
     );
     expect(queryByTestId(document.body, "stargazers")).toHaveTextContent("38k");
     expect(queryByTestId(document.body, "forkcount")).toHaveTextContent("100");
-    expect(queryByTestId(document.body, "issuescount")).toHaveTextContent("45");
-    expect(queryByTestId(document.body, "pullrequestscount")).toHaveTextContent(
-      "10",
-    );
     expect(queryByTestId(document.body, "lang-name")).toHaveTextContent(
       "TypeScript",
     );
@@ -54,6 +50,24 @@ describe("Test renderRepoCard", () => {
     });
     expect(document.getElementsByClassName("header")[0]).toHaveTextContent(
       "anuraghazra/convoychat",
+    );
+  });
+
+  it("should display issues count", () => {
+    document.body.innerHTML = renderRepoCard(data_repo.repository, {
+      show_issues: true,
+    });
+    expect(queryByTestId(document.body, "issuescount")).toHaveTextContent(
+      "4.5k",
+    );
+  });
+
+  it("should display pull requests count", () => {
+    document.body.innerHTML = renderRepoCard(data_repo.repository, {
+      show_pull_requests: true,
+    });
+    expect(queryByTestId(document.body, "pullrequestscount")).toHaveTextContent(
+      "10",
     );
   });
 

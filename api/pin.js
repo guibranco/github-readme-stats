@@ -20,6 +20,10 @@ export default async (req, res) => {
     bg_color,
     theme,
     show_owner,
+    show_stars,
+    show_forks,
+    show_issues,
+    show_pull_requests,
     cache_seconds,
     locale,
     border_radius,
@@ -54,8 +58,10 @@ export default async (req, res) => {
     const forks = repoData.forkCount;
     const issues = repoData.issuesCount;
     const pullRequests = repoData.pullRequestsCount;
-    const isAllOver1K = stars > 1000 && forks > 1000 && issues > 1000 && pullRequests > 1000;
-    const isAllUnder1 = stars < 1 && forks < 1 && issues < 1 && pullRequests < 1;
+    const isAllOver1K =
+      stars > 1000 && forks > 1000 && issues > 1000 && pullRequests > 1000;
+    const isAllUnder1 =
+      stars < 1 && forks < 1 && issues < 1 && pullRequests < 1;
     if (!cache_seconds && (isAllOver1K || isAllUnder1)) {
       cacheSeconds = CONSTANTS.FOUR_HOURS;
     }
@@ -78,6 +84,10 @@ export default async (req, res) => {
         border_radius,
         border_color,
         show_owner: parseBoolean(show_owner),
+        show_stars: parseBoolean(show_stars),
+        show_forks: parseBoolean(show_forks),
+        show_issues: parseBoolean(show_issues),
+        show_pull_requests: parseBoolean(show_pull_requests),
         locale: locale ? locale.toLowerCase() : null,
       }),
     );
