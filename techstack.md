@@ -1,7 +1,8 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 guibranco/github-readme-stats is built on the following main stack:
+
 - [Jest](http://facebook.github.io/jest/) – Javascript Testing Framework
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - [Codecov](https://codecov.io/) – Code Coverage
@@ -10,13 +11,16 @@ guibranco/github-readme-stats is built on the following main stack:
 - [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 - [Prettier](https://prettier.io/) – Code Review
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
+- [Vercel AI SDK](https://sdk.vercel.ai/docs) – Large Language Model Tools
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 guibranco/github-readme-stats is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/830/jest.png' alt='Jest'/> [Jest](http://facebook.github.io/jest/) – Javascript Testing Framework
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/2673/Codecov_Mark_Circle_Pink.png' alt='Codecov'/> [Codecov](https://codecov.io/) – Code Coverage
@@ -25,16 +29,18 @@ guibranco/github-readme-stats is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/7035/default_66f265943abed56bcdbfca1c866a4261b1fbb063.jpg' alt='Prettier'/> [Prettier](https://prettier.io/) – Code Review
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
+- <img width='25' height='25' src='https://img.stackshare.io/service/101756/default_4f2991cba3ec7fdd1cc87de69f4868157b0f2001.png' alt='Vercel AI SDK'/> [Vercel AI SDK](https://sdk.vercel.ai/docs) – Large Language Model Tools
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [guibranco/github-readme-stats](https://github.com/guibranco/github-readme-stats)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|19<br/>Tools used|11/09/23 <br/>Report generated|
+|20<br/>Tools used|12/14/23 <br/>Report generated|
 |------|------|
 </div>
 
@@ -120,7 +126,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (4)
+## Other (5)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'>
@@ -131,11 +137,19 @@ Full tech stack [here](/techstack.md)
 </td>
 
 <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/101756/default_4f2991cba3ec7fdd1cc87de69f4868157b0f2001.png' alt='Vercel AI SDK'>
+  <br>
+  <sub><a href="https://sdk.vercel.ai/docs">Vercel AI SDK</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'>
   <br>
   <sub><a href="https://github.com/mzabriskie/axios">axios</a></sub>
   <br>
-  <sub>v1.6.0</sub>
+  <sub>v1.6.2</sub>
 </td>
 
 <td align='center'>
@@ -165,7 +179,7 @@ Full tech stack [here](/techstack.md)
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
 |[@testing-library/jest-dom](https://www.npmjs.com/@testing-library/jest-dom)|v6.1.3|09/19/23|dependabot[bot] |MIT|N/A|
-|[axios-mock-adapter](https://www.npmjs.com/axios-mock-adapter)|v1.22.0|11/01/23|Guilherme Branco Stracini |MIT|N/A|
+|[axios-mock-adapter](https://www.npmjs.com/axios-mock-adapter)|v1.22.0|12/12/23|Guilherme Branco Stracini |MIT|N/A|
 |[eslint-config-prettier](https://www.npmjs.com/eslint-config-prettier)|v9.0.0|09/25/23|dependabot[bot] |MIT|N/A|
 |[jest-environment-jsdom](https://www.npmjs.com/jest-environment-jsdom)|v29.7.0|09/19/23|dependabot[bot] |MIT|N/A|
 |[js-yaml](https://www.npmjs.com/js-yaml)|v3.14.1|03/19/22|Davoleo |MIT|N/A|
@@ -174,4 +188,4 @@ Full tech stack [here](/techstack.md)
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
