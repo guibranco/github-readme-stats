@@ -10,8 +10,8 @@ guibranco/github-readme-stats is built on the following main stack:
 - [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 - [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 - [Prettier](https://prettier.io/) – Code Review
+- [Vercel](https://vercel.com/) – Static Web Hosting
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
-- [Vercel AI SDK](https://sdk.vercel.ai/docs) – Large Language Model Tools
 
 Full tech stack [here](/techstack.md)
 
@@ -28,8 +28,8 @@ guibranco/github-readme-stats is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'/> [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 - <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/7035/default_66f265943abed56bcdbfca1c866a4261b1fbb063.jpg' alt='Prettier'/> [Prettier](https://prettier.io/) – Code Review
+- <img width='25' height='25' src='https://img.stackshare.io/service/7618/bHjpwZem_400x400.png' alt='Vercel'/> [Vercel](https://vercel.com/) – Static Web Hosting
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
-- <img width='25' height='25' src='https://img.stackshare.io/service/101756/default_4f2991cba3ec7fdd1cc87de69f4868157b0f2001.png' alt='Vercel AI SDK'/> [Vercel AI SDK](https://sdk.vercel.ai/docs) – Large Language Model Tools
 
 Full tech stack [here](/techstack.md)
 
@@ -40,7 +40,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [guibranco/github-readme-stats](https://github.com/guibranco/github-readme-stats)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|22<br/>Tools used|01/05/24 <br/>Report generated|
+|22<br/>Tools used|01/11/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -126,7 +126,20 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (5)
+## <img src='https://img.stackshare.io/saas.svg'/> Software as a Service (SaaS) (1)
+<table><tr>
+  <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/7618/bHjpwZem_400x400.png' alt='Vercel'>
+  <br>
+  <sub><a href="https://vercel.com/">Vercel</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+</tr>
+</table>
+
+## Other (4)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'>
@@ -137,19 +150,11 @@ Full tech stack [here](/techstack.md)
 </td>
 
 <td align='center'>
-  <img width='36' height='36' src='https://img.stackshare.io/service/101756/default_4f2991cba3ec7fdd1cc87de69f4868157b0f2001.png' alt='Vercel AI SDK'>
-  <br>
-  <sub><a href="https://sdk.vercel.ai/docs">Vercel AI SDK</a></sub>
-  <br>
-  <sub></sub>
-</td>
-
-<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'>
   <br>
   <sub><a href="https://github.com/mzabriskie/axios">axios</a></sub>
   <br>
-  <sub>v1.6.2</sub>
+  <sub>v1.6.4</sub>
 </td>
 
 <td align='center'>
@@ -179,7 +184,7 @@ Full tech stack [here](/techstack.md)
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
 |[@testing-library/jest-dom](https://www.npmjs.com/@testing-library/jest-dom)|v6.1.3|09/19/23|dependabot[bot] |MIT|N/A|
-|[axios-mock-adapter](https://www.npmjs.com/axios-mock-adapter)|v1.22.0|12/12/23|Guilherme Branco Stracini |MIT|N/A|
+|[axios-mock-adapter](https://www.npmjs.com/axios-mock-adapter)|v1.22.0|01/09/24|Guilherme Branco Stracini |MIT|N/A|
 |[eslint-config-prettier](https://www.npmjs.com/eslint-config-prettier)|v9.0.0|09/25/23|dependabot[bot] |MIT|N/A|
 |[husky](https://www.npmjs.com/husky)|v8.0.3|07/22/23|dependabot[bot] |MIT|N/A|
 |[jest-environment-jsdom](https://www.npmjs.com/jest-environment-jsdom)|v29.7.0|09/19/23|dependabot[bot] |MIT|N/A|
