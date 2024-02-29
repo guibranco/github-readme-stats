@@ -2,7 +2,7 @@ repo_name: guibranco/github-readme-stats
 report_id: 43bf578c50f81f0c111236e1fcc0b0fc
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-11T12:23:46+00:00'
+timestamp: '2024-02-29T18:08:49+00:00'
 requested_by: guibranco
 provider: github
 branch: master
@@ -94,7 +94,7 @@ tools:
   last_updated_by: anuraghazra
   last_updated_on: 2020-07-09 10:33:41.000000000 Z
 - name: Prettier
-  description: 'Prettier is an opinionated code formatter. '
+  description: Prettier is an opinionated code formatter.
   website_url: https://prettier.io/
   version: 3.0.3
   license: MIT
