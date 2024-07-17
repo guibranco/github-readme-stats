@@ -33,7 +33,13 @@ const fetcher = (variables, token) => {
           id
           name
         }
-        forkCount
+        forkCount,
+        openIssues: issues(states: OPEN) {
+          totalCount
+        },
+        openPullRequests: pullRequests(states:OPEN) {
+          totalCount
+        }
       }
       query getRepo($login: String!, $repo: String!) {
         user(login: $login) {
@@ -92,25 +98,26 @@ const fetchRepo = async (username, reponame) => {
   const isOrg = data.user === null && data.organization;
 
   if (isUser) {
-    if (!data.user.repository || data.user.repository.isPrivate) {
+    if (!data.user.repository) {
       throw new Error("User Repository Not found");
     }
     return {
       ...data.user.repository,
       starCount: data.user.repository.stargazers.totalCount,
+      issuesCount: data.user.repository.openIssues.totalCount,
+      pullRequestsCount: data.user.repository.openPullRequests.totalCount,
     };
   }
 
   if (isOrg) {
-    if (
-      !data.organization.repository ||
-      data.organization.repository.isPrivate
-    ) {
+    if (!data.organization.repository) {
       throw new Error("Organization Repository Not found");
     }
     return {
       ...data.organization.repository,
       starCount: data.organization.repository.stargazers.totalCount,
+      issuesCount: data.organization.repository.openIssues.totalCount,
+      pullRequestsCount: data.organization.repository.openPullRequests.totalCount,
     };
   }
 
