@@ -19,6 +19,7 @@
     "url": "https://github.com/anuraghazra/github-readme-stats.git"
   },
   "scripts": {
+    "start": "node express.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "test:update:snapshot": "node --experimental-vm-modules node_modules/jest/bin/jest.js -u",
@@ -64,6 +65,7 @@
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "emoji-name-map": "^1.2.8",
+    "express": "^4.21.2",
     "github-username-regex": "^1.0.0",
     "upgrade": "^1.1.0",
     "word-wrap": "^1.2.5"
