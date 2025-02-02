@@ -42,12 +42,6 @@ const GRAPHQL_REPOS_QUERY = `
 const GRAPHQL_STATS_QUERY = `
   query userInfo($login: String!, $after: String, $includeMergedPullRequests: Boolean!, $includeDiscussions: Boolean!, $includeDiscussionsAnswers: Boolean!) {
     user(login: $login) {
-      name
-      login
-      contributionsCollection {
-        totalCommitContributions,
-        totalPullRequestReviewContributions
-      }
       repositoriesContributedTo(first: 1, contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
         totalCount
       }
@@ -77,6 +71,19 @@ const GRAPHQL_STATS_QUERY = `
   }
 `;
 
+const GRAPHQL_CONTRIBUTIONS_QUERY = `
+  query userInfo($login: String) {
+    user(login: $login) {
+      name
+      login
+      contributionsCollection {
+        totalCommitContributions,
+        totalPullRequestReviewContributions
+      }
+    }
+  }
+`;
+
 /**
  * @typedef {import('axios').AxiosResponse} AxiosResponse Axios response.
  */
@@ -93,6 +100,26 @@ const fetcher = (variables, token) => {
   return request(
     {
       query,
+      variables,
+    },
+    {
+      Authorization: `bearer ${token}`,
+    },
+  );
+};
+
+/**
+ * Fetch contributions information for a given username.
+ *
+ * @param {object} variables Fetcher variables.
+ * @param {string} token GitHub token.
+ * @returns {Promise<AxiosResponse>} Axios response.
+ *
+ */
+const fetcherContributions = (variables, token) => {
+  return request(
+    {
+      query: GRAPHQL_CONTRIBUTIONS_QUERY,
       variables,
     },
     {
@@ -153,6 +180,17 @@ const statsFetcher = async ({
       res.data.data.user.repositories.pageInfo.hasNextPage;
     endCursor = res.data.data.user.repositories.pageInfo.endCursor;
   }
+
+  var contributions = await retryer(fetcherContributions, { login: username });
+  if (contributions.data.errors) {
+    return contributions;
+  }
+
+  // Merge contributions data.
+  stats.data.data.user = {
+    ...stats.data.data.user,
+    ...contributions.data.data.user,
+  };
 
   return stats;
 };
