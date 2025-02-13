@@ -117,6 +117,12 @@ const fetcher = (variables, token) => {
  *
  */
 const fetcherContributions = (variables, token) => {
+  if (!variables?.login) {
+    throw new MissingParamError(["login"]);
+  }
+  if (!token) {
+    throw new MissingParamError(["token"]);
+  }
   return request(
     {
       query: GRAPHQL_CONTRIBUTIONS_QUERY,
