@@ -42,12 +42,6 @@ const GRAPHQL_REPOS_QUERY = `
 const GRAPHQL_STATS_QUERY = `
   query userInfo($login: String!, $after: String, $includeMergedPullRequests: Boolean!, $includeDiscussions: Boolean!, $includeDiscussionsAnswers: Boolean!) {
     user(login: $login) {
-      name
-      login
-      contributionsCollection {
-        totalCommitContributions,
-        totalPullRequestReviewContributions
-      }
       repositoriesContributedTo(first: 1, contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
         totalCount
       }
@@ -77,6 +71,19 @@ const GRAPHQL_STATS_QUERY = `
   }
 `;
 
+const GRAPHQL_CONTRIBUTIONS_QUERY = `
+  query userInfo($login: String!) {
+    user(login: $login) {
+      name
+      login
+      contributionsCollection {
+        totalCommitContributions,
+        totalPullRequestReviewContributions
+      }
+    }
+  }
+`;
+
 /**
  * @typedef {import('axios').AxiosResponse} AxiosResponse Axios response.
  */
@@ -93,6 +100,32 @@ const fetcher = (variables, token) => {
   return request(
     {
       query,
+      variables,
+    },
+    {
+      Authorization: `bearer ${token}`,
+    },
+  );
+};
+
+/**
+ * Fetch contributions information for a given username.
+ *
+ * @param {object} variables Fetcher variables.
+ * @param {string} token GitHub token.
+ * @returns {Promise<AxiosResponse>} Axios response.
+ *
+ */
+const fetcherContributions = (variables, token) => {
+  if (!variables?.login) {
+    throw new MissingParamError(["login"]);
+  }
+  if (!token) {
+    throw new MissingParamError(["token"]);
+  }
+  return request(
+    {
+      query: GRAPHQL_CONTRIBUTIONS_QUERY,
       variables,
     },
     {
@@ -135,7 +168,6 @@ const statsFetcher = async ({
     if (res.data.errors) {
       return res;
     }
-
     // Store stats data.
     const repoNodes = res.data.data.user.repositories.nodes;
     if (stats) {
@@ -154,6 +186,25 @@ const statsFetcher = async ({
       res.data.data.user.repositories.pageInfo.hasNextPage;
     endCursor = res.data.data.user.repositories.pageInfo.endCursor;
   }
+
+  const contributions = await retryer(fetcherContributions, { login: username });
+  if (contributions.data.errors) {
+    logger.error(contributions.data.errors);
+    if (contributions.data.errors[0].type === "NOT_FOUND") {
+      throw new CustomError(
+        contributions.data.errors[0].message || "Could not fetch user contributions.",
+        CustomError.USER_NOT_FOUND
+      );
+    }
+    return contributions;
+  }
+
+  // Merge contributions data.
+  const contributionsData = contributions.data.data.user;
+  stats.data.data.user = {
+    ...stats.data.data.user,
+    contributionsCollection: contributionsData.contributionsCollection,
+  };
 
   return stats;
 };
