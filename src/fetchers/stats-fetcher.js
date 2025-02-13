@@ -181,15 +181,23 @@ const statsFetcher = async ({
     endCursor = res.data.data.user.repositories.pageInfo.endCursor;
   }
 
-  var contributions = await retryer(fetcherContributions, { login: username });
+  const contributions = await retryer(fetcherContributions, { login: username });
   if (contributions.data.errors) {
+    logger.error(contributions.data.errors);
+    if (contributions.data.errors[0].type === "NOT_FOUND") {
+      throw new CustomError(
+        contributions.data.errors[0].message || "Could not fetch user contributions.",
+        CustomError.USER_NOT_FOUND
+      );
+    }
     return contributions;
   }
 
   // Merge contributions data.
+  const contributionsData = contributions.data.data.user;
   stats.data.data.user = {
     ...stats.data.data.user,
-    ...contributions.data.data.user,
+    contributionsCollection: contributionsData.contributionsCollection,
   };
 
   return stats;
