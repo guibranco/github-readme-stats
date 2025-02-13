@@ -72,7 +72,7 @@ const GRAPHQL_STATS_QUERY = `
 `;
 
 const GRAPHQL_CONTRIBUTIONS_QUERY = `
-  query userInfo($login: String) {
+  query userInfo($login: String!) {
     user(login: $login) {
       name
       login
