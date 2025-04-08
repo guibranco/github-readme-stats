@@ -92,12 +92,12 @@ describe("Test renderRepoCard", () => {
   it("should render emojis", () => {
     document.body.innerHTML = renderRepoCard({
       ...data_repo.repository,
-      description: "This is a text with a :poop: poo emoji",
+      description: "This is a text with a :car: car emoji",
     });
 
-    // poop emoji may not show in all editors but it's there between "a" and "poo"
+    // car emoji may not show in all editors but it's there between "a" and "car"
     expect(document.getElementsByClassName("description")[0]).toHaveTextContent(
-      "This is a text with a 💩 poo emoji",
+      "This is a text with a 🚗 car emoji",
     );
   });
 
