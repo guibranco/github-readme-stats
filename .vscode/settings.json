@@ -2,7 +2,9 @@
     "markdown.extension.toc.levels": "1..3",
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-        "editor.tabSize": 2
-    }
+    "sonarlint.connectedMode.project": {
+        "connectionId": "guibranco",
+        "projectKey": "guibranco_github-readme-stats"
+    },
+    "sarif-viewer.connectToGithubCodeScanning": "on",
 }
