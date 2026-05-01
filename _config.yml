@@ -1,0 +1,4 @@
+theme: jekyll-theme-cayman
+title: GitHub Readme Stats
+description: ⚡ :octocat: Dynamically generated stats for your GitHub readmes
+show_downloads: true
